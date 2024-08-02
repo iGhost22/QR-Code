@@ -61,8 +61,24 @@ class AddProductView extends GetView<AddProductController> {
           ElevatedButton(
             onPressed: () async {
               if (controller.isLoading.isFalse) {
-                controller.isLoading(true);
-                controller.isLoading(false);
+                if (codeC.text.isNotEmpty &&
+                    nameC.text.isNotEmpty &&
+                    qtyC.text.isNotEmpty) {
+                  controller.isLoading(true);
+                  Map<String, dynamic> hasil = await controller.addProduct({
+                    "code": codeC.text,
+                    "name": nameC.text,
+                    "qty": int.tryParse(qtyC.text) ?? 0,
+                  });
+                  controller.isLoading(false);
+
+                  Get.back();
+
+                  Get.snackbar(hasil["error"] == true ? "Error" : "Success",
+                      hasil["message"]);
+                } else {
+                  Get.snackbar("Error", "Please fill all fields");
+                }
               }
             },
             style: ElevatedButton.styleFrom(
@@ -71,8 +87,8 @@ class AddProductView extends GetView<AddProductController> {
               ),
               padding: const EdgeInsets.symmetric(vertical: 20),
             ),
-            child: Obx(() =>
-                Text(controller.isLoading.isFalse ? 'ADD PRODUCT' : 'LOADING...')),
+            child: Obx(() => Text(
+                controller.isLoading.isFalse ? 'ADD PRODUCT' : 'LOADING...')),
           ),
         ],
       ),
