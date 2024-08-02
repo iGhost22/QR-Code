@@ -27,6 +27,27 @@ class AuthController extends GetxController {
     }
   }
 
+  Future<Map<String, dynamic>> logout() async {
+    try {
+      await auth.signOut();
+
+      return {
+        "error": false,
+        "message": "loginnnn logout",
+      };
+    } on FirebaseAuthException catch (e) {
+      return {
+        "error": true,
+        "message": "${e.message}",
+      };
+    } catch (e) {
+      return {
+        "error": true,
+        "message": "logout logout logout ",
+      };
+    }
+  }
+
   @override
   void onInit() {
     auth = FirebaseAuth.instance;
