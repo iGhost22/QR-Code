@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "227778972026",
+    "project_id": "qr-code-mings",
+    "storage_bucket": "qr-code-mings.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227778972026:android:b80872a4908124f166aec3",
+        "android_client_info": {
+          "package_name": "com.rhymings.qr_code"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCONTOBlByW-9-9CNpz7KBO43TP1rUncJk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
