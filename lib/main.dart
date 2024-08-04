@@ -35,9 +35,10 @@ class MyApp extends StatelessWidget {
           }
           return GetMaterialApp(
             title: "QR Code",
-            initialRoute: snapAuth.hasData ? Routes.home : Routes.login,
-            // initialRoute: Routes.login,
-            // initialRoute: Routes.addProduct,
+            // initialRoute: snapAuth.hasData ? Routes.home : Routes.login,
+            // initialRoute: Routes.home,
+            initialRoute: Routes.login,
+            // initialRoute: Routes.products,
             getPages: AppPages.routes,
           );
         });
