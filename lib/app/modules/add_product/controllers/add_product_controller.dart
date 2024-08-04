@@ -7,14 +7,13 @@ class AddProductController extends GetxController {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   Future<Map<String, dynamic>> addProduct(Map<String, dynamic> data) async {
-    var hasil = await firestore.collection("products").add(data);
-    
-    await firestore
-        .collection("products")
-        .doc(hasil.id)
-        .update({"productId": hasil.id});
-
     try {
+      var hasil = await firestore.collection("products").add(data);
+      await firestore
+          .collection("products")
+          .doc(hasil.id)
+          .update({"productId": hasil.id});
+
       return {
         "error": false,
         "message": "Product added successfully",
